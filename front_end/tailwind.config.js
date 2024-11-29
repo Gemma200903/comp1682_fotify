@@ -2,7 +2,19 @@
 module.exports = {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        primary: 'var(--colorPrimary)',
+        secondary: 'var(--colorSecondary)',
+        accent: 'var(--colorAccent)',
+      },
+      fontFamily: {
+        
+        Poppins: '"Poppins", serif',
+        Dancing: '"Dancing Script", serif'
+
+      }
+    },
   },
   plugins: [],
 }

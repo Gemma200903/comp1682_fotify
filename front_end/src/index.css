@@ -1,3 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    :root{
+        --colorPrimary: #0c0a09;
+        --colorSecondary: #a3a3a3;
+        --colorAccent: #e7e5e4;
+
+        
+       
+        
+}
+
+
+}
+
+body{
+
+    font-family: "Poppins", serif;
+
+}
+
+
+.logo{
+
+    font-family: "Dancing Script", serif;
+    padding-left: 15px;
+    font-size: 30px;
+    font-weight: 800;
+    
+
+}
+
+/* text */
+.text-title{
+    @apply text-2xl
+}
+
+.text-subtitle{
+    @apply text-base
+}
+
+/* hover */
+.navbar--content li{
+    @apply hover:bg-accent  rounded-md transition duration-150 ease-in-out
+
+}
+
+/* icon */
+.icon--item{
+    @apply mr-4
+}
+
+
+
+/* homePage--content */
+.homePage--content{
+    @apply flex flex-col overflow-auto
+}
+
+/* navbar--content */
+.navbar--content{
+    @apply p-3 border-r h-screen fixed flex flex-col space-y-2
+}
+
+
+.navbar--content li{
+    @apply cursor-pointer p-3 mt-2
+}
+
+/* searchPage--content */
+.searchPage--content{
+    @apply w-[400px] ml-[82px] h-screen rounded-r-xl shadow-lg border-r
+}
+
+.text-title.border-active {
+    border: 1px solid transparent;
+    border-radius: 8px;
+  }
+  
+
+  .navbar--content.w-20 .text-title.border-active {
+    border-color: var(--colorSecondary); 
+  }
+
+
+
+
+
+
+
