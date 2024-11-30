@@ -1,14 +1,18 @@
-import React from 'react'
-import SearchComponent from '../../component/NavBarComponent/SearchComponent'
-import { useSelector } from 'react-redux'
+import React from "react";
+import SearchComponent from "../../component/NavBarComponent/SearchComponent";
+import { useSelector } from "react-redux";
 
 const SearchPage = () => {
-  const {searchHidden} = useSelector((state)=>state.navBarReducer)
-  return (
-    <div className={`${searchHidden}`}>
-        <SearchComponent></SearchComponent>
-    </div>
-  )
-}
+  
+  const {seacrchHidden} = useSelector((state)=>state.navBarReducer)
 
-export default SearchPage
+  return (
+    <div
+      className={`searchPage--item ${seacrchHidden}`}
+    >
+      <SearchComponent></SearchComponent>
+    </div>
+  );
+};
+
+export default SearchPage;

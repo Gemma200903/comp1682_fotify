@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import HomePage from "./page/Home";
 
 function App() {
@@ -5,6 +6,8 @@ function App() {
     <div className="App">
 
       <HomePage></HomePage>
+      <Outlet></Outlet>
+
       
     </div>
   );

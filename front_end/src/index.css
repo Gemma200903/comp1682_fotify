@@ -11,11 +11,9 @@
         --colorPrimary: #0c0a09;
         --colorSecondary: #a3a3a3;
         --colorAccent: #e7e5e4;
-
-        
-       
-        
+      
 }
+
 
 
 }
@@ -37,15 +35,24 @@ body{
 
 }
 
+
 /* text */
 .text-title{
     @apply text-2xl
+}
+
+.text--accent{
+    @apply text-lg font-semibold
 }
 
 .text-subtitle{
     @apply text-base
 }
 
+
+.text--small--bold{
+    @apply text-sm font-semibold text-secondary
+}
 /* hover */
 .navbar--content li{
     @apply hover:bg-accent  rounded-md transition duration-150 ease-in-out
@@ -54,9 +61,43 @@ body{
 
 /* icon */
 .icon--item{
-    @apply mr-4
+    @apply mr-4 text-2xl
 }
 
+
+/* hr--item */
+.hr--item{
+    @apply mt-5 w-full
+}
+
+/* input */
+
+
+
+.ant-btn {
+    background-color: var(--colorAccent); /* Xóa nền */
+    /* border: none; Xóa viền */
+    /* box-shadow: none; Xóa shadow */
+    color: var(--colorSecondary);
+}
+.ant-btn:hover{
+    background-color: var(--colorSecondary) !important;
+    color: #e7e5e4 !important;
+}
+.ant-btn:focus {
+    /* border-color: var(--colorSecondary);  */
+    box-shadow: var(--colorAccent);
+    /* background-color: transparent;  */
+  }
+  
+
+/* Ghi đè cho tất cả các input có lớp .ant-input */
+.ant-input:focus {
+    outline: none !important; /* Xóa outline */
+    box-shadow: none !important; /* Xóa shadow */
+  }
+
+  
 
 
 /* homePage--content */
@@ -76,7 +117,7 @@ body{
 
 /* searchPage--content */
 .searchPage--content{
-    @apply w-[400px] ml-[82px] h-screen rounded-r-xl shadow-lg border-r
+    @apply w-[400px] ml-[82px] h-screen rounded-r-xl shadow-lg border-r m-auto fixed
 }
 
 .text-title.border-active {
@@ -88,6 +129,67 @@ body{
   .navbar--content.w-20 .text-title.border-active {
     border-color: var(--colorSecondary); 
   }
+
+
+  /* input--item */
+  .input--item{
+    @apply mt-6 w-full
+
+  }
+
+/* .searchPage--item{
+    @apply fixed
+} */
+
+.searchResult{
+    @apply mt-10
+}
+.searchPage--content .text--accent, .searchResult .text-subtitle{
+    @apply p-4
+} 
+
+.searchPage--content .input--item{
+    @apply px-4 mt-2
+}
+
+.searchResult .text--small--bold{
+    @apply text-center
+}
+
+
+/* explore--content */
+.explore--content {
+    @apply w-[82%] h-auto border ml-auto grid grid-cols-3 gap-4;
+}
+.explore--content img{
+    @apply w-[500px] object-cover h-[500px]
+}
+.explore--item{
+    @apply flex flex-col items-center relative cursor-pointer
+}
+.explore--item:hover .interaction--item{
+    @apply opacity-100 ease-in duration-300
+}
+.explore--item:hover img{
+    @apply opacity-75 ease-in duration-300
+}
+.interaction--item{
+    @apply flex justify-center space-x-5 items-center
+    absolute top-1/2 left-24
+    text-white
+    opacity-0
+    z-10
+   
+}
+
+.interaction--item i{
+    @apply text-2xl
+}
+.like, .comment{
+    @apply flex items-center space-x-2
+}
+
+
 
 
 

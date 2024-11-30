@@ -1,96 +1,158 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { changeNav } from "../../redux/navBarSlice/navBarSlice";
 
 const NavBarComponent = () => {
-  const { width, logo, titleItem } = useSelector((state) => state.navBarReducer);
+  const { width, logo, home, search, explore, notifications, create, saved, profile, settings } = useSelector(
+    (state) => state.navBarReducer
+  );
+
   const dispatch = useDispatch();
 
-  const [activeItem, setActiveItem] = useState("home");
+  const renderHomePage = () => {
+    dispatch(changeNav("home"));
+  };
 
-  // Handle click to change active item
-  const handleItemClick = (item) => {
-    if (item === "search") {
-      // Set active to 'search' and expand width
-      setActiveItem("search");
-      dispatch(changeNav()); // Mở rộng giao diện
-    } else {
-      // Reset active item and shrink back to default width
-      setActiveItem(item);
-      if (width === "w-20") {
-        dispatch(changeNav()); // Thu nhỏ giao diện khi rời khỏi search
-      }
-    }
+  const renderExplorePage = () => {
+    dispatch(changeNav("explore"));
+  };
+
+  const renderNotificationsPage = () => {
+    dispatch(changeNav("notifications"));
+  };
+
+  const renderCreatePage = () => {
+    dispatch(changeNav("create"));
+  };
+
+  const renderProfilePage = () => {
+    dispatch(changeNav("profile"));
+  };
+
+  const renderSavedPage = () => {
+    dispatch(changeNav("saved"));
+  };
+
+  const renderSettingsPage = () => {
+    dispatch(changeNav("settings"));
+  };
+
+  const renderSearchPage = () => {
+    dispatch(changeNav("search"));
   };
 
   return (
     <div className={`navbar--content ${width}`}>
-      <p className="logo" dangerouslySetInnerHTML={{ __html: logo }}></p>
+      <div className="logo">
+        {logo ? <i className={`icon ${logo}`}></i> : <span>Fotify</span>}
+      </div>
+
       <ul>
-        {/* Home Nav */}
-        <li
-          className={`text-title ${activeItem === "home" ? "font-bold" : "text-base"}`}
-          onClick={() => handleItemClick("home")}
-        >
-          <i className="fa-thin fa-house-chimney icon--item" />
-          <span className="text-subtitle">{titleItem[0].home}</span>
+
+        {/* home */}
+        <li onClick={renderHomePage}>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "font-bold" : "text-base")}
+          >
+            <i className="fa-thin fa-house-chimney icon--item" />
+            <span className="text-subtitle">{home}</span>
+          </NavLink>
         </li>
 
-        {/* Search Nav */}
+
+        {/* search */}
         <li
-          className={`text-title ${
-            activeItem === "search" && width === "w-20" ? "border-active" : ""
-          } ${activeItem === "search" ? "font-bold" : "text-base"}`}
-          onClick={() => handleItemClick("search")}
+          onClick={renderSearchPage}
+          className={`navbar-item ${
+            width === "w-20" ? "border border-zinc-400" : ""
+          }`}
         >
-          <i className="fa-thin fa-magnifying-glass icon--item" />
-          <span className="text-subtitle">{titleItem[0].search}</span>
+          <NavLink
+            to="/Search"
+            className={({ isActive }) => (isActive ? "font-bold" : "text-base")}
+          >
+            <i className="fa-thin fa-magnifying-glass icon--item" />
+            <span className="text-subtitle">{search}</span>
+          </NavLink>
         </li>
 
-        {/* Explore Nav */}
-        <li
-          className={`text-title ${activeItem === "explore" ? "font-bold" : "text-base"}`}
-          onClick={() => handleItemClick("explore")}
-        >
-          <i className="fa-thin fa-compass icon--item" />
-          <span className="text-subtitle">{titleItem[0].explore}</span>
+
+         {/* Explore */}
+         <li onClick={renderExplorePage}>
+          <NavLink
+            to="/Explore"
+            className={({ isActive }) => (isActive ? "font-bold" : "text-base")}
+          >
+            <i className="fa-thin fa-compass icon--item" />
+            <span className="text-subtitle">{explore}</span>
+          </NavLink>
         </li>
 
-        {/* Notifications Nav */}
-        <li
-          className={`text-title ${activeItem === "notifications" ? "font-bold" : "text-base"}`}
-          onClick={() => handleItemClick("notifications")}
-        >
-          <i className="fa-sharp fa-thin fa-heart icon--item" />
-          <span className="text-subtitle">{titleItem[0].notifications}</span>
+
+          {/* notifications */}
+         <li onClick={renderNotificationsPage}>
+          <NavLink
+            to="/Notifications"
+            className={({ isActive }) => (isActive ? "font-bold" : "text-base")}
+          >
+            <i className="fa-sharp fa-thin fa-heart icon--item" />
+            <span className="text-subtitle">{notifications}</span>
+          </NavLink>
         </li>
 
-        {/* Create Nav */}
-        <li
-          className={`text-title ${activeItem === "create" ? "font-bold" : "text-base"}`}
-          onClick={() => handleItemClick("create")}
-        >
-          <i className="fa-thin fa-square-plus icon--item" />
-          <span className="text-subtitle">{titleItem[0].create}</span>
+
+          {/* create */}
+         <li onClick={renderCreatePage}>
+          <NavLink
+            to="/Create"
+            className={({ isActive }) => (isActive ? "font-bold" : "text-base")}
+          >
+             <i className="fa-thin fa-square-plus icon--item" />
+            <span className="text-subtitle">{create}</span>
+          </NavLink>
         </li>
 
-        {/* Saved Nav */}
-        <li
-          className={`text-title ${activeItem === "saved" ? "font-bold" : "text-base"}`}
-          onClick={() => handleItemClick("saved")}
-        >
-          <i className="fa-sharp fa-thin fa-bookmark icon--item" />
-          <span className="text-subtitle">{titleItem[0].saved}</span>
+
+          {/* saved */}
+         <li onClick={renderSavedPage}>
+          <NavLink
+            to="/Saved"
+            className={({ isActive }) => (isActive ? "font-bold" : "text-base")}
+          >
+             <i className="fa-sharp fa-thin fa-bookmark icon--item" />
+            <span className="text-subtitle">{saved}</span>
+          </NavLink>
         </li>
 
-        {/* More Nav */}
-        <li
-          className={`text-title ${activeItem === "more" ? "font-bold" : "text-base"}`}
-          onClick={() => handleItemClick("more")}
-        >
-          <i className="fa-sharp fa-thin fa-bars icon--item" />
-          <span className="text-subtitle">{titleItem[0].more}</span>
+          {/* profile */}
+         <li onClick={renderProfilePage}>
+          <NavLink
+            to="/Profile"
+            className={({ isActive }) => (isActive ? "font-bold" : "text-base")}
+          >
+             <i className="fa-sharp fa-thin fa-user icon--item" />
+            <span className="text-subtitle">{profile}</span>
+          </NavLink>
         </li>
+
+
+          {/*settings */}
+         <li onClick={renderSettingsPage}>
+          <NavLink
+            to="/Profile"
+            className={({ isActive }) => (isActive ? "font-bold" : "text-base")}
+          >
+             <i className="fa-sharp fa-thin fa-gear icon--item" />
+            <span className="text-subtitle">{settings}</span>
+          </NavLink>
+        </li>
+
+
+
+
+
       </ul>
     </div>
   );
