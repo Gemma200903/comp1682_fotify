@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import NavBarComponent from "../../component/NavBarComponent/NavBarComponent";
 
 const ExplorePage = () => {
   return (
     <div className="explore--content">
+      <NavBarComponent></NavBarComponent>
+
+      <div className="explore--mainContent">
 
       <div className="explore--item">
         <div className="interaction--item">
@@ -179,6 +183,10 @@ const ExplorePage = () => {
           srcset=""
         />
       </div>
+
+      </div>
+
+      
 
 
     </div>

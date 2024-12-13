@@ -43,7 +43,8 @@ const NavBarComponent = () => {
   };
 
   return (
-    <div className={`navbar--content ${width}`}>
+    <div>
+      <div className={`navbar--content ${width}`}>
       <div className="logo">
         {logo ? <i className={`icon ${logo}`}></i> : <span>Fotify</span>}
       </div>
@@ -155,6 +156,9 @@ const NavBarComponent = () => {
 
       </ul>
     </div>
+
+    </div>
+    
   );
 };
 

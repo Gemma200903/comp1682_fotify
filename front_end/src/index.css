@@ -35,10 +35,22 @@ body{
 
 }
 
+button{
+    @apply border border-accent rounded-md px-6 py-2 bg-stone-300
+}
+
+button:hover{
+    @apply border border-accent bg-white text-secondary transition duration-700 ease-in-out
+}
+
 
 /* text */
 .text-title{
     @apply text-2xl
+}
+
+.text--main{
+    @apply text-xs
 }
 
 .text--accent{
@@ -46,7 +58,10 @@ body{
 }
 
 .text-subtitle{
-    @apply text-base
+    @apply text-sm
+}
+.text--secondary{
+    @apply text-secondary text-sm 
 }
 
 
@@ -61,7 +76,10 @@ body{
 
 /* icon */
 .icon--item{
-    @apply mr-4 text-2xl
+    @apply mr-4 text-xl
+}
+.icon--item{
+    @apply hover:cursor-pointer
 }
 
 
@@ -102,7 +120,7 @@ body{
 
 /* homePage--content */
 .homePage--content{
-    @apply flex flex-col overflow-auto
+    @apply flex bg-white
 }
 
 /* navbar--content */
@@ -117,7 +135,7 @@ body{
 
 /* searchPage--content */
 .searchPage--content{
-    @apply w-[400px] ml-[82px] h-screen rounded-r-xl shadow-lg border-r m-auto fixed
+    @apply w-[400px] ml-[82px] h-screen rounded-r-xl shadow-lg border-r m-auto fixed bg-white
 }
 
 .text-title.border-active {
@@ -158,8 +176,11 @@ body{
 
 
 /* explore--content */
-.explore--content {
-    @apply w-[82%] h-auto border ml-auto grid grid-cols-3 gap-4;
+/* .explore--content {
+    @apply w-[82%] h-auto border right-0 grid grid-cols-3 gap-4;
+} */
+.explore--mainContent{
+    @apply w-[82%] h-auto border right-0 grid grid-cols-3 gap-4 ml-auto;
 }
 .explore--content img{
     @apply w-[500px] object-cover h-[500px]
@@ -188,6 +209,188 @@ body{
 .like, .comment{
     @apply flex items-center space-x-2
 }
+
+.feed--content{
+    @apply absolute w-[82%] h-full top-0 right-1 flex flex-col
+}
+.feed-main{
+    @apply w-[95%] m-auto
+}
+.feed-head{
+    @apply flex flex-row justify-between m-8 space-x-5
+}
+.pst--btn button{
+    @apply px-40 p-6 text-base font-medium bg-neutral-50
+}
+.item--left{
+    @apply flex flex-row justify-between items-center space-x-3
+}
+.head--icon{
+    @apply font-bold
+}
+
+.feed-body{
+    @apply flex flex-row space-x-10 justify-between w-[90%]  ml-auto
+}
+
+.bodyComp--content{
+    @apply  w-[50%] mx-8 h-auto p-2  flex flex-col space-y-3 border-b
+}
+
+.bodyComp--header{
+    @apply flex flex-row justify-between items-center
+}
+.user--area{
+    @apply flex flex-row justify-between items-center space-x-3
+}
+.avt--user{
+    @apply w-12 h-12 object-cover border-2 border-x-2 border-y-2 border-secondary rounded-full
+}
+.circle{
+    @apply w-1 h-1 bg-secondary rounded-full
+}
+
+
+.suggestedComp--content{
+    @apply  w-[32%] p-2 border
+}
+
+
+.post--detail{
+    @apply text-xl cursor-pointer
+}
+
+.image--post{
+    @apply w-[100%] h-[580px] object-cover rounded-md
+}
+.bodyComp--Interaction{
+    @apply flex flex-row justify-between
+}
+.interac--item{
+    @apply flex flex-row
+}
+.icon-interact{
+    @apply hover:text-secondary text-2xl
+}
+/* .bodyComp--Desc{
+    @apply leading-5
+} */
+.text-capt{
+    @apply text-sm font-medium
+}
+.bodyComp--Desc p, .comment--list{
+    @apply font-light text-sm text-justify
+}
+.bodyComp--Desc .btn-toggle-caption, .comment--list {
+   
+    background: none;
+    border: none; 
+    color: gray;
+    cursor: pointer; 
+    font-size: 14px;
+    /* margin-left: 5px;  */
+    
+  }
+  .bodyComp--Desc .btn-toggle-caption:hover{
+    cursor: pointer;
+  }
+  .comment-input {
+    width: 100%;
+    margin-top: 5px;
+    
+    font-size: 14px;
+    resize: none;
+    overflow: hidden; 
+  }
+  
+  .comment-input:focus {
+    outline: none; 
+   
+  }
+  
+  .comment-input::placeholder {
+    color: gray;  
+  }
+  .Authen--Content{
+    @apply w-[70%] m-auto h-screen flex flex-row justify-between py-8
+  }
+  .loginContainer{
+    @apply w-[100%] h-full border border-accent rounded-md p-8
+  }
+  .authen--item{
+    @apply w-[100%] h-full
+  }
+  .loginContainer .logo{
+    @apply text-center font-bold text-5xl
+  }
+  .loginInput{
+    @apply flex flex-col items-center space-y-6 mt-7
+  }
+  .loginInput input, .signUpMainContent input{
+    @apply w-[80%] border-b border-accent m-auto p-1
+  }
+  .loginInput input:focus, .signUpMainContent input:focus{
+    outline: none;
+  }
+  .loginInput input::placeholder, .signUpMainContent input::placeholder{
+    color: gray;
+  }
+  .loginInput button{
+    @apply w-[80%] font-bold
+  }
+  .or{
+    @apply flex justify-between w-[80%] h-auto space-x-3 items-center
+  }
+  .or hr{
+    @apply w-[100%] bg-black
+  }
+  .forgot--pass{
+    @apply ml-auto w-[90%] text-gray-700
+  }
+  .loginInput .loginWFb{
+    @apply bg-white border-none p-0 font-semibold
+  }
+  .signUp, .signIn{
+    @apply flex flex-row items-center justify-center w-full border w-[90%] p-5 space-x-2
+  }
+  .signUpLink, .signInLink{
+    @apply font-semibold
+  }
+  .signUpContainer{
+    @apply p-3
+  }
+
+  .signUpMainContent{
+    @apply w-[40%] m-auto border rounded-sm h-auto flex flex-col space-y-6 items-center p-3
+  }
+  .signUpMainContent .logo{
+    @apply font-bold text-5xl
+  }
+  .signUpMainContent .logo, .desTitle, .signUpMainContent button{
+    @apply w-[80%] m-auto text-center
+  }
+  .desTitle{
+    @apply text-center text-stone-500 font-normal
+  }
+
+ .signUpMainContent .turnLeft{
+    @apply absolute top-5 left-[35%]
+  }
+
+.error{
+  @apply text-red-700 w-[80%] text-sm text-justify
+}
+.successMessage{
+  @apply text-green-700
+}
+
+ 
+  
+
+
+  
+
+
 
 
 
