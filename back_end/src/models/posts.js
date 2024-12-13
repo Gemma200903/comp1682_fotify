@@ -34,7 +34,7 @@ export default class posts extends Model {
   }, {
     sequelize,
     tableName: 'posts',
-    timestamps: true,
+    timestamps: false,
     indexes: [
       {
         name: "PRIMARY",
